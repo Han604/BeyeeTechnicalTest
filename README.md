@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mode.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `re-usable components`
 
-### `yarn test`
+CalendarButton.js takes Icon1, Icon2, and title as props. Icon1 will display on the left hand side of the title, Icon2 will appear on the right side. Title is not mandatory.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+CalenderButtonAlt.js takes title, counter, and Icon as props. edges are more curved than CalendarButton and can not take two Icons as props. title is a mandatory string, and counter is an integer passed through props.
 
-### `yarn build`
+ScheduleCard.js takes an individual appointment object as props and displays the information with data that it parses from the object. ScheduleCard conditionally renders depending on whether or not the isLate prop is true or false and whether or not all fields have been fulfilled or not (isComplete).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+NumBox.js is a component used in the footer as well as the CollaboratorBar. it takes a value prop which displays the number value that it is expecting.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Avatar.js takes a userAvatar as props. renders an image.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+HeaderButton.js takes link and title as props. the HeaderButton displays title value and on click will take you to a url based on the link prop.
 
-### `yarn eject`
+AppointmentContainer.js is a responsive component that takes data for a whole day as props, will map through the various objects within an array which is the dataset and return individual appointment cards per appointment object in the dataset.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Day.js takes day, number and isActive as props. day is a string that displays the name of the day of the week, number is a value of the numerical day of the week, isActive if true will render the day cell as active, with orange styling.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Month.js takes a month string value and returns the month component displaying the month.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `Other Notes and Suggestions`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+When a user hovers over an individual AppointmentContainer component, the AddAppointmentCard component will render underneath.
 
-## Learn More
+The title of the page is an input with its value set as a local state, so when the user changes the name of the organizer it could be sent with a POST to a database allowing users to have many unique organizers.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Would love to see functionality to share certain schedule cards, full days or weeks of appointments to other users on the team. A button could be added to the ScheduleCard to allow sharing.
